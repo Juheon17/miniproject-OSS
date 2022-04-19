@@ -65,3 +65,21 @@ int deletProduct(Product *p) {
     return 1;
 }
 
+void saveData(Product *p, int count) {
+
+    FILE *fp;
+    fp = fopen("test.txt", "wt");
+
+    for(int i=0; i<count; i++) {
+        if(p[i].price== -1 ) continue;
+        //fprintf(fp, "%10s %8s %7d %1d %s\n", p[i].name, p[i].weight, p[i].price, p[i].way, p[i].detail);
+    fprintf(fp, "%s\n", p[i].name);
+    fprintf(fp, "%s\n" ,p[i].weight);
+    fprintf(fp, "%s\n", p[i].detail);
+    fprintf(fp, "%d\n",p[i].price);
+    fprintf(fp, "%d\n",p[i].way);
+    }
+    fclose(fp);
+    printf("=>저장됨! ");
+
+}
