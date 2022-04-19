@@ -15,5 +15,5 @@ void saveData(Product *p, int count); //FILE 저장
 int loadData(Product *p); //FILE 로드
 void searchProductName(Product *p, int count); //이름으로 검색
 void searchProductPrice(Product *p, int count); //가격으로 검색
-void searchProduceWeight(Product *p, int count); //무게로 검색
+void searchProductWeight(Product *p, int count); //무게로 검색
 
