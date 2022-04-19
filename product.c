@@ -127,3 +127,23 @@ void searchProductName(Product *p, int count){
     if(scnt ==0) printf("=> 검색된 데이터 없음!");
     printf("\n");
 }
+
+void searchProductWeight(Product *p, int count){
+    int scnt =0; //검색할 데이터가 있는지 확인
+    char search[10]; //검색할 무게
+
+    printf("찾으시는 중량은? : ");
+    scanf(" %s", search);
+
+    for(int i=0; i<count; i++) {
+        if(p[i].price==-1) continue;
+        if(strstr(p[i].weight, search)) {
+            printf("%d. %s\n", i+1, p[i].name);
+            scnt++;
+        }
+    }
+    if(scnt ==0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
+
