@@ -13,6 +13,10 @@ int selectMenu(){
     printf("2. 제품 설명\n");
     printf("3. 제품 수정\n");
     printf("4. 제품 삭제\n");
+    printf("5. 제품 저장\n");
+    printf("6. 제품명으로 찾기\n");
+    printf("7. 가격으로 찾기\n");
+    printf("8. 중량으로 찾기\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 메뉴는? ");
     scanf("%d", &menu);
@@ -20,10 +24,10 @@ int selectMenu(){
 }
 int main(void){
     Product plist[20];
-int index = 0;
+    int index = 0;
     int count = 0, menu;
 
-    //count = loadData(plist);
+    count = loadData(plist);
     index = count;
 
 #ifdef DEBUG
@@ -68,12 +72,18 @@ int index = 0;
             }
                 printf("=>삭제됨!\n");
         }
-        /*else if (menu == 5){
-            saveData(plist);
+	else if (menu == 5){
+            saveData(plist, index);
         }
         else if (menu == 6){
-            searchProduct(plist);
-        }*/
+            searchProductName(plist, index);
+        }
+        else if (menu == 7){
+            searchProductPrice(plist, index);
+        }
+        else if (menu == 8){
+            searchProductWeight(plist, index);
+        }
     }
     printf("종료됨!\n");
     return 0;
