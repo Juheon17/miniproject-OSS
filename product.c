@@ -83,3 +83,29 @@ void saveData(Product *p, int count) {
     printf("=>저장됨! ");
 
 }
+
+int loadData(Product *p) {
+
+    //int count=0, i;
+    int i;
+    FILE *fp;
+        if(fp = fopen("test.txt","rt")) {
+        for(i=0; i<100; i++) {
+        fscanf(fp, " %[^\n]", p[i].name);
+        if(feof(fp)) break;
+        fscanf(fp, " %s", p[i].weight);
+        fscanf(fp, " %[^\n]", p[i].detail);
+        fscanf(fp, " %d", &p[i].price);
+        fscanf(fp, " %d", &p[i].way);
+        }
+
+        fclose(fp);
+        printf("\n=> 로딩 성공!\n");
+        return i;
+        }
+        else {
+        printf("\n=> 파일 없음\n");
+        return 0;
+    }
+
+}
